@@ -1,6 +1,8 @@
-FROM ubuntu:latest AS base
+FROM ubuntu:20.04 AS base
 
 FROM base AS juce_dev_machine
+
+RUN apt upgrade;apt update
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
