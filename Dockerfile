@@ -5,7 +5,7 @@ FROM base AS juce_dev_machine
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     git \
-    clang-11 \
+    clang \
     cmake \
     ninja-build \
     pkg-config \
@@ -22,13 +22,13 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     libxinerama-dev  \
     libxrandr-dev \
     libxrender-dev \
-    libwebkit2gtk-4.0-dev \
+    libwebkit2gtk-4.1-dev \
     libglu1-mesa-dev  \
     mesa-common-dev
 
 #Make sure clang is the default compiler:
 RUN DEBIAN_FRONTEND=noninteractive \
-    update-alternatives --install /usr/bin/cc cc /usr/bin/clang-11 100
+    update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100
 
 RUN DEBIAN_FRONTEND=noninteractive \
-    update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-11 100
+    update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang 100
